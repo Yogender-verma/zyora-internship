@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+
     <!-- Theme Toggle Button -->
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
         ☀️
@@ -16,7 +18,7 @@
 
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
-    
+
     <header>
         <nav>
             <ul>
@@ -31,31 +33,36 @@
 
     <main id="home">
         <div class="glass-container">
-            
+
             <!-- Left Column -->
             <div class="hero-text">
                 <h1>
-                    Hello, <br/>
+                    Hello, <br />
                     I'm <span class="highlight">Yogender</span>
                 </h1>
                 <div class="subtitle">Frontend Developer Intern</div>
-                <p>Welcome to my Developer Launch Page! I am thrilled to embark on this 15-day journey at Zyora to build, learn, and grow alongside an amazing team.</p>
+                <p>Welcome to my Developer Launch Page! I am thrilled to embark on this 15-day journey at Zyora to
+                    build, learn, and grow alongside an amazing team.</p>
                 <a href="https://github.com/Yogender-verma" target="_blank" class="btn">View My GitHub</a>
             </div>
 
             <!-- Right Column -->
             <div class="cards-grid">
-                
+
                 <div class="feature-card">
                     <div class="icon-box">🚀</div>
                     <h2>What I'll Build</h2>
-                    <p>Over the next 15 days, I'll be crafting <span class="highlight-text">innovative, modern web applications</span>. My focus will be on deep-diving into front-end and back-end ecosystems to build responsive, accessible, and scalable solutions.</p>
+                    <p>Over the next 15 days, I'll be crafting <span class="highlight-text">innovative, modern web
+                            applications</span>. My focus will be on deep-diving into front-end and back-end ecosystems
+                        to build responsive, accessible, and scalable solutions.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="icon-box">🎯</div>
                     <h2>Why I Joined</h2>
-                    <p>I joined this program to <span class="highlight-text">level up my engineering skills</span>, collaborate with brilliant minds, and develop real-world products that have a meaningful impact on everyday users.</p>
+                    <p>I joined this program to <span class="highlight-text">level up my engineering skills</span>,
+                        collaborate with brilliant minds, and develop real-world products that have a meaningful impact
+                        on everyday users.</p>
                 </div>
 
             </div>
@@ -65,8 +72,10 @@
 
     <section id="about">
         <h2>About Me</h2>
-        <img src="https://via.placeholder.com/150" alt="Profile picture of Yogender" style="border-radius: 50%; border: 2px solid var(--ocean-blue); margin-bottom: 1rem;" />
-        <p>I am a passionate frontend developer intern eager to build accessible and modern web experiences. I love learning new technologies and solving complex problems with clean, semantic code.</p>
+        <img src="https://via.placeholder.com/150" alt="Profile picture of Yogender"
+            style="border-radius: 50%; border: 2px solid var(--ocean-blue); margin-bottom: 1rem;" />
+        <p>I am a passionate frontend developer intern eager to build accessible and modern web experiences. I love
+            learning new technologies and solving complex problems with clean, semantic code.</p>
     </section>
 
     <section id="skills">
@@ -92,9 +101,9 @@
             </thead>
             <tbody>
                 <tr>
-                    <td style="padding: 0.5rem;">B.Tech in Computer Science</td>
-                    <td style="padding: 0.5rem;">University of Technology</td>
-                    <td style="padding: 0.5rem;">2021 - 2025</td>
+                    <td style="padding: 0.5rem;">B.Tech in Artificial Intelligence & Machine Learning</td>
+                    <td style="padding: 0.5rem;">CMR Engineering College</td>
+                    <td style="padding: 0.5rem;">2024 - 2028</td>
                 </tr>
             </tbody>
         </table>
@@ -104,13 +113,16 @@
         <h2>Contact Me</h2>
         <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 1rem; max-width: 500px;">
             <label for="name">Name</label>
-            <input type="text" id="name" name="name" required style="padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-main);" />
+            <input type="text" id="name" name="name" required
+                style="padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-main);" />
 
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required style="padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-main);" />
+            <input type="email" id="email" name="email" required
+                style="padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-main);" />
 
             <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4" required style="padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-main);"></textarea>
+            <textarea id="message" name="message" rows="4" required
+                style="padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-main);"></textarea>
 
             <button type="submit" class="btn" style="align-self: flex-start;">Send Message</button>
         </form>
@@ -119,11 +131,11 @@
     <!-- Theme Toggle Script -->
     <script>
         const themeToggleBtn = document.getElementById('themeToggle');
-        
+
         // Check local storage or system preference
         const savedTheme = localStorage.getItem('theme');
         const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
+
         if (savedTheme === 'light' || (!savedTheme && !systemPrefersDark)) {
             document.body.setAttribute('data-theme', 'light');
             themeToggleBtn.innerText = '🌙';
@@ -145,4 +157,5 @@
         });
     </script>
 </body>
+
 </html>
