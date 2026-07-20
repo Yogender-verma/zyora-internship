@@ -40,6 +40,10 @@
     --orb-2-color: rgba(255, 34, 114, 0.15);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -539,11 +543,23 @@ section p {
     .theme-toggle {
         top: 1rem;
         right: 1rem;
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
     }
     .hero-text h1 {
         font-size: 3rem;
     }
     section h2 {
         font-size: 2.2rem;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    header {
+        padding: 1rem;
+        margin-top: 4rem; /* leave space for theme toggle */
     }
 }
