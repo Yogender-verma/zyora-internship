@@ -72,8 +72,7 @@
 
     <section id="about">
         <h2>About Me</h2>
-        <img src="https://via.placeholder.com/150" alt="Profile picture of Yogender"
-            style="border-radius: 50%; border: 2px solid var(--ocean-blue); margin-bottom: 1rem;" />
+        <img src="https://via.placeholder.com/150" alt="Profile picture of Yogender" class="profile-img" />
         <p>I am a passionate frontend developer intern eager to build accessible and modern web experiences. I love
             learning new technologies and solving complex problems with clean, semantic code.</p>
     </section>
@@ -91,19 +90,19 @@
 
     <section id="education">
         <h2>Education</h2>
-        <table border="1" style="width:100%; border-collapse: collapse; text-align: left;">
+        <table class="education-table">
             <thead>
                 <tr>
-                    <th style="padding: 0.5rem;">Degree</th>
-                    <th style="padding: 0.5rem;">Institution</th>
-                    <th style="padding: 0.5rem;">Year</th>
+                    <th>Degree</th>
+                    <th>Institution</th>
+                    <th>Year</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td style="padding: 0.5rem;">B.Tech in Artificial Intelligence & Machine Learning</td>
-                    <td style="padding: 0.5rem;">CMR Engineering College</td>
-                    <td style="padding: 0.5rem;">2024 - 2028</td>
+                    <td>B.Tech in Artificial Intelligence & Machine Learning</td>
+                    <td>CMR Engineering College</td>
+                    <td>2024 - 2028</td>
                 </tr>
             </tbody>
         </table>
@@ -111,20 +110,17 @@
 
     <section id="contact">
         <h2>Contact Me</h2>
-        <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 1rem; max-width: 500px;">
+        <form action="#" method="POST" class="contact-form">
             <label for="name">Name</label>
-            <input type="text" id="name" name="name" required
-                style="padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-main);" />
+            <input type="text" id="name" name="name" required class="form-input" />
 
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required
-                style="padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-main);" />
+            <input type="email" id="email" name="email" required class="form-input" />
 
             <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4" required
-                style="padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-main);"></textarea>
+            <textarea id="message" name="message" rows="4" required class="form-input"></textarea>
 
-            <button type="submit" class="btn" style="align-self: flex-start;">Send Message</button>
+            <button type="submit" class="btn submit-btn">Send Message</button>
         </form>
     </section>
 
