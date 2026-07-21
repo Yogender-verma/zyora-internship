@@ -1,27 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yogender - Developer Launch Page</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Font Pairing: Roboto (Headings) and Open Sans (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
-        ☀️
-    </button>
-
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
 
     <header>
         <nav>
-            <ul>
+            <div class="logo">Yogender's Portfolio</div>
+            <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -32,53 +26,21 @@
     </header>
 
     <main id="home">
-        <div class="glass-container">
-
-            <!-- Left Column -->
-            <div class="hero-text">
-                <h1>
-                    Hello, <br />
-                    I'm <span class="highlight">Yogender</span>
-                </h1>
-                <div class="subtitle">Frontend Developer Intern</div>
-                <p>Welcome to my Developer Launch Page! I am thrilled to embark on this 15-day journey at Zyora to
-                    build, learn, and grow alongside an amazing team.</p>
-                <a href="https://github.com/Yogender-verma" target="_blank" class="btn">View My GitHub</a>
-            </div>
-
-            <!-- Right Column -->
-            <div class="cards-grid">
-
-                <div class="feature-card">
-                    <div class="icon-box">🚀</div>
-                    <h2>What I'll Build</h2>
-                    <p>Over the next 15 days, I'll be crafting <span class="highlight-text">innovative, modern web
-                            applications</span>. My focus will be on deep-diving into front-end and back-end ecosystems
-                        to build responsive, accessible, and scalable solutions.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="icon-box">🎯</div>
-                    <h2>Why I Joined</h2>
-                    <p>I joined this program to <span class="highlight-text">level up my engineering skills</span>,
-                        collaborate with brilliant minds, and develop real-world products that have a meaningful impact
-                        on everyday users.</p>
-                </div>
-
-            </div>
-
-        </div>
+        <section class="intro">
+            <h1>Hello, I'm Yogender</h1>
+            <p class="subtitle">Frontend Developer Intern</p>
+            <p>Welcome to my Developer Launch Page! I am thrilled to embark on this 15-day journey at Zyora to build, learn, and grow alongside an amazing team.</p>
+        </section>
     </main>
 
     <section id="about">
         <h2>About Me</h2>
-        <p>I am a passionate frontend developer intern eager to build accessible and modern web experiences. I love
-            learning new technologies and solving complex problems with clean, semantic code.</p>
+        <p>I am a passionate frontend developer intern eager to build accessible and modern web experiences. I love learning new technologies and solving complex problems with clean, semantic code.</p>
     </section>
 
     <section id="skills">
         <h2>Skills</h2>
-        <ul>
+        <ul class="skills-list">
             <li>HTML5 & Semantic Web</li>
             <li>CSS3 (Flexbox, Grid, Animations)</li>
             <li>JavaScript (ES6+)</li>
@@ -110,47 +72,24 @@
     <section id="contact">
         <h2>Contact Me</h2>
         <form action="#" method="POST" class="contact-form">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required class="form-input" />
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required />
+            </div>
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required class="form-input" />
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+            </div>
 
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4" required class="form-input"></textarea>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
 
-            <button type="submit" class="btn submit-btn">Send Message</button>
+            <button type="submit" class="submit-btn">Send Message</button>
         </form>
     </section>
 
-    <!-- Theme Toggle Script -->
-    <script>
-        const themeToggleBtn = document.getElementById('themeToggle');
-
-        // Check local storage or system preference
-        const savedTheme = localStorage.getItem('theme');
-        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-        if (savedTheme === 'light' || (!savedTheme && !systemPrefersDark)) {
-            document.body.setAttribute('data-theme', 'light');
-            themeToggleBtn.innerText = '🌙';
-        }
-
-        themeToggleBtn.addEventListener('click', () => {
-            const currentTheme = document.body.getAttribute('data-theme');
-            if (currentTheme === 'light') {
-                // Switch to Dark Mode
-                document.body.removeAttribute('data-theme');
-                themeToggleBtn.innerText = '☀️';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                // Switch to Light Mode
-                document.body.setAttribute('data-theme', 'light');
-                themeToggleBtn.innerText = '🌙';
-                localStorage.setItem('theme', 'light');
-            }
-        });
-    </script>
 </body>
-
 </html>
