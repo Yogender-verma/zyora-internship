@@ -52,3 +52,65 @@ h2 {
     font-weight: 600;
     margin-bottom: 1.5rem;
 }
+
+/* 2. Nav into a horizontal bar using Flexbox */
+header {
+    background-color: var(--white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 1rem 2rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* 3. Skills list into Flexbox CARDS */
+.skills-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.skills-list li {
+    background-color: var(--white);
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    flex: 1 1 calc(33.333% - 1.5rem);
+    text-align: center;
+    font-weight: 600;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skills-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-color: var(--secondary-color);
+}
