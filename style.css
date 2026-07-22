@@ -24,6 +24,7 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     min-height: 100vh;
+    padding-bottom: 2rem;
 }
 
 h1, h2, h3, .logo {
@@ -36,6 +37,10 @@ section {
     width: min(100%, var(--max-width));
     margin: 0 auto;
     padding: 0 var(--section-padding);
+}
+
+main {
+    padding-top: 1.5rem;
 }
 
 section {
@@ -60,6 +65,10 @@ h2 {
     color: var(--secondary-color);
     font-weight: 600;
     margin-bottom: 1.5rem;
+}
+
+.intro p {
+    max-width: 42rem;
 }
 
 header {
@@ -207,6 +216,30 @@ nav {
 
 .submit-btn:hover {
     background-color: #128f76;
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 0.9rem 1rem;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .logo {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .submit-btn {
+        width: 100%;
+    }
 }
 
 @media (min-width: 768px) {
