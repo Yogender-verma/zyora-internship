@@ -1,16 +1,21 @@
-/* 1. Variables and Reset (Color Scheme & Font Pairing) */
 :root {
     --primary-color: #2c3e50;
     --secondary-color: #18bc9c;
     --bg-color: #f8f9fa;
     --text-color: #333333;
     --white: #ffffff;
+    --max-width: 72rem;
+    --section-padding: clamp(1rem, 3vw, 2rem);
 }
 
 * {
-    box-sizing: border-box; /* Crucial for box model */
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -18,6 +23,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
+    min-height: 100vh;
 }
 
 h1, h2, h3, .logo {
@@ -25,14 +31,18 @@ h1, h2, h3, .logo {
     color: var(--primary-color);
 }
 
-/* Basic section spacing to be refined later */
-section, main {
-    margin: 4rem auto;
-    padding: 0 2rem;
-    max-width: 1000px;
+main,
+section {
+    width: min(100%, var(--max-width));
+    margin: 0 auto;
+    padding: 0 var(--section-padding);
 }
 
-/* Headings Spacing */
+section {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
 h2 {
     margin-bottom: 1.5rem;
     border-bottom: 2px solid var(--secondary-color);
@@ -40,43 +50,44 @@ h2 {
     padding-bottom: 0.5rem;
 }
 
-/* Intro Section */
 .intro h1 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 3rem);
     margin-bottom: 0.5rem;
 }
 
 .intro .subtitle {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--secondary-color);
     font-weight: 600;
     margin-bottom: 1.5rem;
 }
 
-/* 2. Nav into a horizontal bar using Flexbox */
 header {
     background-color: var(--white);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem var(--section-padding);
 }
 
 nav {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    max-width: 1000px;
+    gap: 0.75rem 1rem;
+    width: min(100%, var(--max-width));
     margin: 0 auto;
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 2rem;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
 }
 
 .nav-links a {
@@ -90,20 +101,18 @@ nav {
     color: var(--secondary-color);
 }
 
-/* 3. Skills list into Flexbox CARDS */
 .skills-list {
     list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
 }
 
 .skills-list li {
     background-color: var(--white);
-    padding: 1.5rem 2rem;
+    padding: 1.25rem 1.5rem;
     border-radius: 8px;
     border: 1px solid #e0e0e0;
-    flex: 1 1 calc(33.333% - 1.5rem);
     text-align: center;
     font-weight: 600;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -111,21 +120,26 @@ nav {
 
 .skills-list li:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-color: var(--secondary-color);
 }
 
-/* 4. Education Table Styling */
+.table-wrapper {
+    overflow-x: auto;
+}
+
 .education-table {
     width: 100%;
+    min-width: 32rem;
     border-collapse: collapse;
     background-color: var(--white);
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-.education-table th, .education-table td {
+.education-table th,
+.education-table td {
     padding: 1rem;
     text-align: left;
     border-bottom: 1px solid #e0e0e0;
@@ -140,15 +154,14 @@ nav {
     border-bottom: none;
 }
 
-/* 4. Contact Form Styling */
 .contact-form {
     background-color: var(--white);
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.25rem;
 }
 
 .form-group {
@@ -162,7 +175,9 @@ nav {
     color: var(--primary-color);
 }
 
-.form-group input, .form-group textarea {
+.form-group input,
+.form-group textarea {
+    width: 100%;
     padding: 0.8rem;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -170,7 +185,8 @@ nav {
     font-size: 1rem;
 }
 
-.form-group input:focus, .form-group textarea:focus {
+.form-group input:focus,
+.form-group textarea:focus {
     outline: none;
     border-color: var(--secondary-color);
     box-shadow: 0 0 0 2px rgba(24, 188, 156, 0.2);
@@ -180,15 +196,44 @@ nav {
     background-color: var(--secondary-color);
     color: var(--white);
     border: none;
-    padding: 1rem 2rem;
+    padding: 1rem 1.5rem;
     font-size: 1rem;
     font-weight: 600;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
-    align-self: flex-start;
+    align-self: stretch;
 }
 
 .submit-btn:hover {
     background-color: #128f76;
+}
+
+@media (min-width: 768px) {
+    nav {
+        flex-wrap: nowrap;
+    }
+
+    .nav-links {
+        gap: 1.5rem;
+    }
+
+    .skills-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contact-form {
+        padding: 2rem;
+    }
+
+    .submit-btn {
+        align-self: flex-start;
+        width: auto;
+    }
+}
+
+@media (min-width: 1024px) {
+    .skills-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 }
