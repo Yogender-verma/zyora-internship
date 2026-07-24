@@ -183,6 +183,92 @@ nav {
     border-bottom: none;
 }
 
+.live-data-section {
+    background: linear-gradient(135deg, rgba(24, 188, 156, 0.12), rgba(44, 62, 80, 0.08));
+    border: 1px solid rgba(24, 188, 156, 0.2);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.refresh-btn {
+    border: none;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 0.6rem 0.95rem;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.refresh-btn:hover {
+    background-color: #128f76;
+}
+
+.live-data-intro {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.api-status {
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.api-content {
+    min-height: 5rem;
+}
+
+.api-card {
+    background-color: var(--white);
+    border-radius: 12px;
+    padding: 1.25rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.api-label {
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--secondary-color);
+    margin-bottom: 0.75rem;
+}
+
+.temperature-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.temp-chip {
+    background: rgba(24, 188, 156, 0.12);
+    color: var(--primary-color);
+    padding: 0.65rem 0.9rem;
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+.api-meta {
+    color: #5f6b7a;
+}
+
+.api-error {
+    color: #b91c1c;
+    font-weight: 600;
+}
+
 .contact-form {
     background-color: var(--white);
     padding: 1.5rem;
