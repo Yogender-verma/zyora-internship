@@ -2,6 +2,9 @@ const body = document.body;
 const themeToggle = document.querySelector('#theme-toggle');
 const form = document.querySelector('.contact-form');
 const formMessage = document.querySelector('#form-message');
+const apiStatus = document.querySelector('#api-status');
+const apiContent = document.querySelector('#api-content');
+const refreshButton = document.querySelector('#refresh-data');
 
 if (themeToggle) {
   themeToggle.addEventListener('click', () => {
@@ -32,6 +35,62 @@ function showFormMessage(message, type) {
   formMessage.textContent = message;
   formMessage.className = `form-message ${type}`;
   console.log(`Form message [${type}]:`, message);
+}
+
+async function fetchWeatherData() {
+  if (apiStatus) {
+    apiStatus.textContent = 'Loading…';
+  }
+
+  if (apiContent) {
+    apiContent.innerHTML = '';
+  }
+
+  try {
+    const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&daily=temperature_2m_max,temperature_2m_min&timezone=auto');
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    const data = await response.json();
+    const daily = data?.daily;
+
+    if (!daily?.time?.length || !daily?.temperature_2m_max?.length || !daily?.temperature_2m_min?.length) {
+      throw new Error('Unexpected API format');
+    }
+
+    const firstDay = daily.time[0];
+    const maxTemp = daily.temperature_2m_max[0];
+    const minTemp = daily.temperature_2m_min[0];
+
+    if (apiStatus) {
+      apiStatus.textContent = `Forecast for ${firstDay}`;
+    }
+
+    if (apiContent) {
+      apiContent.innerHTML = `
+        <div class="api-card">
+          <p class="api-label">Today's temperature</p>
+          <div class="temperature-row">
+            <span class="temp-chip">Max ${maxTemp}°C</span>
+            <span class="temp-chip">Min ${minTemp}°C</span>
+          </div>
+          <p class="api-meta">Location: Berlin, Germany</p>
+        </div>
+      `;
+    }
+  } catch (error) {
+    console.error('Weather fetch failed:', error);
+
+    if (apiStatus) {
+      apiStatus.textContent = "Couldn't fetch data";
+    }
+
+    if (apiContent) {
+      apiContent.innerHTML = '<p class="api-error">Please try again in a moment.</p>';
+    }
+  }
 }
 
 if (form) {
@@ -78,3 +137,12 @@ if (form) {
     console.log('Form validation passed');
   });
 }
+
+if (refreshButton) {
+  refreshButton.addEventListener('click', () => {
+    fetchWeatherData();
+  });
+}
+
+fetchWeatherData();
+
